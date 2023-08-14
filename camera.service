@@ -1,0 +1,14 @@
+[Unit]
+Description=Survaillance Camera service
+After=network-online.target
+ 
+[Service]
+ExecStart=python3 install_dir/camera_stream.py
+WorkingDirectory=/home/pi/observatory/camera
+StandardOutput=syslog
+StandardError=syslog
+Restart=always
+User=pi
+ 
+[Install]
+WantedBy=multi-user.target
